@@ -6,14 +6,15 @@ class Solution(object):
         :rtype: str
         """
         i=0
-        string = ""
+        s = []
         while i< min(len(word1),len(word2)):
-            string = string+word1[i]+word2[i]
+            s.append(word1[i])
+            s.append(word2[i])
             i+=1
         
-        
         if len(word1) > len(word2):
-            string = string + word1[-(len(word1)-len(word2)):]
+            s.append(word1[-(len(word1)-len(word2)):])
         elif len(word2) > len(word1):
-            string = string + word2[-(len(word2)-len(word1)):]
-        return string
+            s.append(word2[-(len(word2)-len(word1)):])
+        
+        return ''.join(s)
